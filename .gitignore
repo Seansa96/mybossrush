@@ -1,0 +1,34 @@
+# Visual Studio
+.vs/
+*.VC.db
+*.VC.opendb
+
+# Unreal generated
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Build files
+*.suo
+*.opensdf
+*.sdf
+*.tmp
+
+# Crash dumps
+*.dmp
+
+# Logs
+*.log
+
+# Optional local config
+*.user
+
+# Mac/Linux junk
+.DS_Store
