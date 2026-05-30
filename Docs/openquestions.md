@@ -1,45 +1,71 @@
 # Open Questions
 
+These are unresolved design questions. They should not block implementation unless directly relevant to the current task.
+
 ## Combat
 
+- What is the exact global cooldown duration?
+- Does Haste reduce the global cooldown, cast time, or both?
 - How long is the ability queue window?
-- Are auto-attacks paused during casts, dodges, or both?
-- Does dodging cancel the current cast, pause it, or allow it to continue?
-- Is targeting hard lock, soft lock, or tab-cycle only?
-- Can abilities be used without a target?
-- Should bosses have interruptible casts?
+- Do all offensive abilities require a selected target?
+- Can abilities be cast while out of range and then fire when in range, or do they fail immediately?
+- Should auto-attacks continue during dodge rolls?
+- Should auto-attacks trigger their full animation during all actions, or can they resolve mechanically without animation?
 
-## Resources
+## Ability System
 
-- What is the first playable class?
-- What is its primary resource?
-- Does the first class use a secondary resource?
-- Do resources regenerate over time, through auto-attacks, or through abilities?
+- Are resources consumed at cast start or cast completion?
+- Does an ability enter cooldown at cast start or cast completion?
+- Can cooldowns be refunded if a cast is canceled?
+- Can damage-over-time effects critically strike?
+- Can lifesteal apply to damage-over-time effects?
+- How should “next auto-attack” effects be stored and consumed?
+- Can multiple “next auto-attack” effects stack?
 
 ## Health and Shield
 
+- Does shield have a maximum value?
 - Does shield decay over time?
-- Does shield absorb damage before health?
-- Can shield exceed maximum health?
-- Should negative shield be shown anywhere for debugging?
+- Can negative shield anti-heal debt stack without limit?
+- Should negative shield be visible in debug UI?
 
-## Gear
+Current assumption for first implementation:
+- Shield has no maximum.
+- Shield does not decay.
+- Negative shield is allowed.
+- Negative shield is debug-visible only if needed.
 
-- What gear slots exist?
-- Can gear have multiple stats?
-- Can gear modify movement, cooldowns, cast time, or only damage/defense?
-- Are upgrades linear, e.g. +1 level, or stat-specific?
+## Gear and Stats
 
-## Inventory and Vendor
+- What does each stat do mechanically?
+- Which stats can appear on gear first?
+- Can gear have multiple stat modifiers?
+- Are gear upgrades linear or stat-specific?
+- Should gear upgrades cost only gold or also materials?
 
-- What happens when inventory is full and a boss drops gear?
-- Does selling gear require vendor interaction?
-- Does the vendor inventory unlock after boss kills?
-- Can players buy back sold gear?
+## Inventory
 
-## Boss Rush Progression
+- Does sending full-inventory loot to storage happen automatically or by player choice?
+- Is storage chest capacity limited?
+- Can deleted gear be recovered?
+- Can gear be sold from storage or only from inventory?
 
-- Are bosses selected from a menu or fought in a fixed sequence?
-- Does dying reset the current boss only, or the whole run?
-- Are rewards guaranteed or randomized?
-- What unlocks the next boss?
+## Vendor
+
+- Does the vendor sell fixed items, unlock items after bosses, or both?
+- Can the vendor upgrade equipped gear only, or any gear in inventory?
+- Is there buyback for sold gear?
+
+## Boss Progression
+
+- Are bosses fought in a fixed sequence or selected from a menu?
+- Does defeating a boss permanently unlock the next boss?
+- Are boss rewards fixed, random, or mixed?
+- Do bosses respawn for farming?
+
+## Testing Branch
+
+- How will “testing branch” behavior be represented?
+  - Separate Git branch?
+  - Debug flag?
+  - Developer-only vendor?
