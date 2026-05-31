@@ -17,8 +17,7 @@ void UWeaponDamageComponent::BeginPlay()
 	
 	EquipmentComponent = GetOwner()->FindComponentByClass<UEquipmentComponent>();
 
-	ensureMsgf(EquipmentComponent, TEXT("WeaponDamageComponent requires an 
-		EquipmentComponent on the same Actor."));
+	ensureMsgf(EquipmentComponent, TEXT("WeaponDamageComponent requires an EquipmentComponent on the same Actor."));
 }
 
 float UWeaponDamageComponent::GetWeaponDamageRoll() const
